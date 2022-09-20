@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary", "BookLibrary\BookLibrary.csproj", "{07AD2565-AEB6-40F3-94BC-E829D5333F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreWebApp", "EFCoreWebApp\EFCoreWebApp.csproj", "{331A52D3-AC60-45CE-A32A-42A6CA4F36CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApplication", "EFApplication\EFApplication.csproj", "{E1F33028-F93C-4416-9723-0FF12E5D4B2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07AD2565-AEB6-40F3-94BC-E829D5333F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07AD2565-AEB6-40F3-94BC-E829D5333F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07AD2565-AEB6-40F3-94BC-E829D5333F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07AD2565-AEB6-40F3-94BC-E829D5333F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331A52D3-AC60-45CE-A32A-42A6CA4F36CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331A52D3-AC60-45CE-A32A-42A6CA4F36CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331A52D3-AC60-45CE-A32A-42A6CA4F36CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331A52D3-AC60-45CE-A32A-42A6CA4F36CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F33028-F93C-4416-9723-0FF12E5D4B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F33028-F93C-4416-9723-0FF12E5D4B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F33028-F93C-4416-9723-0FF12E5D4B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F33028-F93C-4416-9723-0FF12E5D4B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
