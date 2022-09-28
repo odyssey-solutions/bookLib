@@ -3,15 +3,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookLibrary;
+using BookLibrary.Data;
 using EFCoreWeb.Models;
 
 namespace EFCoreWeb.Controllers
 {
     public class BooksController : Controller
     {
-        private readonly BooksContext _context;
+        private readonly BookLibraryContext _context;
 
-        public BooksController(BooksContext context)
+        public BooksController(BookLibraryContext context)
         {
             _context = context;
         }

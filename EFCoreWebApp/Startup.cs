@@ -1,4 +1,5 @@
 using BookLibrary;
+using BookLibrary.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace EFCoreWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BooksContext>(options => options.UseMySQL(Configuration.GetConnectionString("BooksLibrary:MySQLServer")));
+            services.AddDbContext<BookLibraryContext>(options => options.UseMySQL(Configuration.GetConnectionString("BooksLibrary:MySQLServer")));
 
             services.AddControllersWithViews();
         }
