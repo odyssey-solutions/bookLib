@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -12,6 +13,10 @@ namespace EFApplication
     public static class jsonModelExtentions
     {
         public static T jsonObject<T>(this string source)
+        {
+            return JsonSerializer.Deserialize<T>(source)!;
+        }
+        public static T jsonObject<T>(T entity, string source)
         {
             return JsonSerializer.Deserialize<T>(source)!;
         }
@@ -26,6 +31,15 @@ namespace EFApplication
         public List<string> Stars { get; set; }
         public string Language { get; set; }
         public string Budget { get; set; }
+
+        public squidGame()
+        {
+            
+        }
+        public static squidGame FromJson(string source)
+        {
+            return JsonSerializer.Deserialize<squidGame>(source)!;
+        }
     }
 
     class Program
@@ -93,6 +107,24 @@ namespace EFApplication
             //}
         }
 
+        static object? ObjectFromJson(string className, string json)
+        {
+            if(className.Equals(null) || json.Equals(null))
+                return null;
+
+            Type? jsonClassType = Type.GetType(className);
+            
+            if (jsonClassType == null)
+                return null;
+            
+            MethodInfo? jsonMethod = jsonClassType.GetMethod("FromJson"); //, 1, new Type[] { typeof(string) });
+
+            if (jsonMethod == null)
+                return null;
+            
+            return jsonMethod.Invoke(null, new Object[] { json });
+        }
+
         static void JsonTest()
         {
             // NativeJsonUnitTest.cs
@@ -112,24 +144,15 @@ namespace EFApplication
 
             string classname = "EFApplication.squidGame";
 
-            var dynamicObject = JsonSerializer.Deserialize<squidGame>(jsonString)!;
-            var game = jsonString.jsonObject<squidGame>();
-            
+            Object jsonObj = ObjectFromJson(classname, jsonString)!;
+
             /*
             Type jsonClassType = Type.GetType(classname);
-            // Get the generic method `Foo`
-            var methodJsonObject = typeof(jsonModelExtentions).GetMethod("jsonObject");
-
-            // Make the non-generic method via the `MakeGenericMethod` reflection call.
-            // Yes - this is confusing Microsoft!!
-            var methodJsonClassObject = methodJsonObject.MakeGenericMethod(new[] { jsonClassType });
-    
-            // Invoke the method just like a normal method.
-            methodJsonClassObject.Invoke(new jsonModelExtentions(), new object[] { new object() });
+            MethodInfo jsonMethod = jsonClassType.GetMethod("FromJson"); //, 1, new Type[] { typeof(string) });
+            var jsonObject = jsonMethod.Invoke(null, new Object[] { jsonString });
+            Console.WriteLine(jsonObject);
             */
             
-            Console.WriteLine(dynamicObject);
-            var genre = dynamicObject.Genre;
         }
     }
 }

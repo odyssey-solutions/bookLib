@@ -23,7 +23,7 @@ namespace BookLibrary.Entity
                     && at.ParentId == Id)
                 .ToList();
         }
-        public int Id { get; set; }
+        public int Id { get; init;  }
         public DateTime DateTimeCreated { get; set; }
         public DateTime DateTimeModified { get; set; }
         public bool Archived { get; set; }
